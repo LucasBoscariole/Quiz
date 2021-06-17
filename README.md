@@ -15,8 +15,9 @@ npm install
 This app also use axios to get the API information.
 
 ```bash
-npm install axios --save
+npm install axios
 ```
-## Author 
+
+## Author
 
 I made this project by myself and I took inspiration in a quiz project made in my React course.
