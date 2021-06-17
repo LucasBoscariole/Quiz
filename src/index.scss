@@ -1,0 +1,260 @@
+$clr-1-background: #f5f5f5;
+$clr-2: #1a1b4b;
+$clr-3: #3a9efd;
+$clr-4: #3e4491;
+$clr-5: #f7a400;
+$clr-5-hover: #ffc44f;
+$clr-error: #cc0000;
+$clr-correct: #25bb32;
+$clr-white: #fff;
+$clr-black: #000000;
+$transition: all 0.3s linear;
+$spacing: 0.1rem;
+$radius: 0.25rem;
+$max-width: 1170px;
+$fixed-width: 620px;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: $clr-1-background;
+  color: $clr-black;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: $spacing;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: $clr-2;
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quiz {
+  width: 90vw;
+  max-width: $max-width;
+  margin: 4rem auto;
+  background: $clr-white;
+  border-radius: $radius;
+  padding: 3rem;
+}
+.quiz-small {
+  max-width: 500px;
+}
+.container h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+}
+.answer-btn {
+  display: block;
+  width: 100%;
+  margin: 0.75rem auto;
+  background: $clr-4;
+  border-radius: $radius;
+  border-color: transparent;
+  color: $clr-black;
+  letter-spacing: $spacing;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: $transition;
+}
+@media screen and (min-width: 576px) {
+  .answer-btn {
+    max-width: 60%;
+  }
+}
+.answer-btn:hover {
+  background: $clr-3;
+  color: $clr-white;
+}
+.correct-answers {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  text-align: right;
+  text-transform: capitalize;
+  letter-spacing: $spacing;
+  color: $clr-correct;
+}
+.next-question,
+.close-btn,
+.submit-btn {
+  border-radius: $radius;
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  display: block;
+  width: 35%;
+  margin-left: auto;
+  margin-top: 2rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  letter-spacing: $spacing;
+  font-size: 1rem;
+  background: $clr-5;
+  color: $clr-black;
+  transition: $transition;
+  cursor: pointer;
+}
+.next-question:hover {
+  border-color: $clr-5-hover;
+  background: $clr-1-background;
+  color: $clr-5;
+}
+
+.setup-form h2 {
+  margin-bottom: 2rem;
+}
+.form-control {
+  margin-bottom: 2rem;
+}
+.form-control label {
+  display: block;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: $clr-2;
+  margin-bottom: 0.5rem;
+}
+.form-input {
+  border: none;
+  background: $clr-1-background;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  border-radius: $radius;
+}
+.error {
+  color: $clr-error;
+  text-transform: capitalize;
+}
+.submit-btn {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top-color: $clr-3;
+  animation: spinner 0.6s linear infinite;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000005d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: $transition;
+  z-index: -1;
+}
+.isOpen {
+  opacity: 1;
+  z-index: 999;
+}
+
+.modal-content {
+  background: $clr-white;
+  width: 90vw;
+  max-width: $fixed-width;
+  padding: 3rem;
+  border-radius: $radius;
+  text-align: center;
+  position: relative;
+}
+.modal-content p {
+  font-size: 1.5rem;
+  text-transform: none;
+}
+.close-btn {
+  margin-right: auto;
+}
